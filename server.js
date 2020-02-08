@@ -2,7 +2,8 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const campsiteRouter = require('./routes/campsiteRouter');
-
+const promotionsRouter = require('./routes/promotionsRouter');
+const partnersRouter = require('./routes/partnersRouter');
 
 const hostname = "localhost";
 const port = 3000;
@@ -12,7 +13,8 @@ app.use(morgan("dev"));
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use('/campsites',campsiteRouter);
-
+app.use('/promotions',promotionsRouter);
+app.use('/partners',partnersRouter);
 //any request to the path /campsites will trigger this method
 // all => all http verbs
 
